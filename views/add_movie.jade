@@ -1,0 +1,18 @@
+extends layout
+
+block content 
+    form(action="post")
+        label(for="title") Title:
+        input(type="text" id="title" name="title")
+        label(for="description") Description:
+        input(type="text" id="description" name="description")
+        label(for="actor1") Actor 1
+        input(type="checkbox" id="actor1" value="actor 1")
+        label(for="actor2") Actor 2
+        input(type="checkbox" name="actor2" value="actor 2")
+        label(for="actor3") Actor 3
+        input(type="checkbox" name="actor3" value="actor3")
+        label(for="director") Director:
+        select(name="director", id="director")
+            option(value="Erik") Erik
+            option(value="Someone") Someone  

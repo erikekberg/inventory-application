@@ -4,4 +4,26 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      h1 Movie
+    sidebar.sidebar
+      ul
+        li 
+          a(href="/movies") All Movies
+        li 
+          a(href="/genres") All Genres
+        li 
+          a(href="/directors") All Directors
+        li 
+          a(href="/actors") All Actors
+      ul 
+        li 
+          a(href="/movies/add") Add Movie
+        li 
+          a(href="/genres/add") Add Genre
+        li 
+          a(href="/directors/add") Add Director
+        li 
+          a(href="/actors/add") Add Actor
+    div.content
+      block content
