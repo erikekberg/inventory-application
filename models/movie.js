@@ -10,13 +10,14 @@ const MovieSchema = new Schema({
     type: String,
   },
   director: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "Director",
   },
   actors: {
     type: Array,
   },
 });
 
-const Movie = mogoose.model("movie", MovieSchema);
+const Movie = mongoose.model("movie", MovieSchema);
 
 module.exports = Movie;
