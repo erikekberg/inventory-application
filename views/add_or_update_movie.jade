@@ -28,7 +28,6 @@ block content
     form(action="/movies/add" method="post") 
       label(for="title") Title:
       input(type="text" id="title" name="title" )
-      input(type="text" id="title" name="title")
       label(for="description") Description:
       input(type="text" id="description" name="description")
       label(for="director") Director:
@@ -41,5 +40,4 @@ block content
           option(value=genre.name)=genre.name
       label(for="date") Release year
       input(type="number" id="date" name="releaseyear")
-
-    button submit
+      button submit

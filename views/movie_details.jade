@@ -5,7 +5,8 @@ block content
     h1=details.title 
     h2=details.releaseyear
     p=details.description
-    p=details.director
+    a(href="/directors/" + director._id) 
+      p=details.director
     ul 
       for genre in details.genres 
         li=genre

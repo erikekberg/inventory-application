@@ -133,10 +133,13 @@ exports.update_movie = (req, res, next) => {
 };
 
 exports.delete_movie = (req, res, next) => {
+  console.log("Hello");
   Movie.findByIdAndDelete(req.params.id, (err, docs) => {
     if (err) {
       res.send(err);
-    } else res.redirect("/");
+    } else {
+      res.redirect("/");
+    }
   });
 };
 
@@ -145,8 +148,14 @@ exports.movie_details = (req, res, next) => {
     if (err) {
       res.send(err);
     } else {
-      console.log(details);
-      res.render("movie_details", { details: details });
+      Director.findOne({ name: details.director }).exec((err, director) => {
+        if (err) {
+          res.send(err);
+        } else {
+          console.log(director._id);
+          res.render("movie_details", { details: details, director: director });
+        }
+      });
     }
   });
 };

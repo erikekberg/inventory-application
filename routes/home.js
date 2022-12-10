@@ -30,7 +30,7 @@ router.get("/movies/update/:id", movieController.update_movie_form);
 
 router.post("/movies/update/:id", movieController.update_movie);
 
-router.delete("/movies/delete/:id", movieController.delete_movie);
+router.get("/movies/delete/:id", movieController.delete_movie);
 
 router.get("/movies/:id", movieController.movie_details);
 
@@ -46,13 +46,13 @@ router.get("/genres/delete", genreController.delete_genre);
 
 router.get("/genres/:id", genreController.movies_in_genre);
 
-router.get("/directors", directorController.display_directors);
-
-router.get("/directors/:id", directorController.director_details);
+router.get("/directors/", directorController.display_directors);
 
 router.get("/directors/add", directorController.add_director_form);
 
 router.post("/directors/add", directorController.add_director);
+
+router.get("/directors/:id", directorController.director_details);
 
 router.get("/directors/update", directorController.update_director_form);
 
