@@ -1,0 +1,7 @@
+extends layout 
+
+block content 
+  ul
+    for genre in genres
+        a(href="genres/" + genre.name) 
+          li=genre.name

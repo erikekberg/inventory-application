@@ -12,10 +12,6 @@ var http = require("http");
  * Get port from environment and store in Express.
  */
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 

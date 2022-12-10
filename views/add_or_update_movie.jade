@@ -1,18 +1,45 @@
 extends layout
 
 block content 
-    form(action="post")
-        label(for="title") Title:
-        input(type="text" id="title" name="title")
-        label(for="description") Description:
-        input(type="text" id="description" name="description")
-        label(for="actor1") Actor 1
-        input(type="checkbox" id="actor1" value="actor 1")
-        label(for="actor2") Actor 2
-        input(type="checkbox" name="actor2" value="actor 2")
-        label(for="actor3") Actor 3 
-        input(type="checkbox" name="actor3" value="actor3")
-        label(for="director") Director:
-        select(name="director", id="director")
-            option(value="Erik") Erik
-            option(value="Someone") Someone  
+  if movie_details
+    form(action="/movies/update/"+movie_details._id method="post")
+      label(for="title") Title:
+      input(type="text" id="title" name="title" value=movie_details.title )
+      label(for="description") Description:
+      input(type="text" id="description" name="description" value=movie_details.description)
+      label(for="director") Director:
+      select(name="director" id="director")
+        for director in directors 
+          if(director.name == movie_details.director)
+            option(value=director.name selected )=director.name
+          else 
+            option(value=director.name)=director.name
+      label(for="genres") Genres
+      select(name="genres" multiple id="genres" value=movie_details.genres) 
+        for genre in genres 
+          if(movie_details.genres.includes(genre.name))
+            option(value=genre.name selected)=genre.name
+          else 
+            option(value=genre.name)=genre.name
+      label(for="date") Release year
+      input(type="number" id="date" name="releaseyear" value=movie_details.releaseyear)
+      button Update
+  else 
+    form(action="/movies/add" method="post") 
+      label(for="title") Title:
+      input(type="text" id="title" name="title" )
+      input(type="text" id="title" name="title")
+      label(for="description") Description:
+      input(type="text" id="description" name="description")
+      label(for="director") Director:
+      select(name="director", id="director")
+        for director in directors 
+          option(value=director.name )=director.name
+      label(for="genres") Genres
+      select(name="genres" multiple id="genres") 
+        for genre in genres 
+          option(value=genre.name)=genre.name
+      label(for="date") Release year
+      input(type="number" id="date" name="releaseyear")
+
+    button submit

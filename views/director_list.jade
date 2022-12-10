@@ -1,0 +1,11 @@
+extends layout 
+
+block content  
+    for director in directors 
+      div
+        a(href="/directors/"+director._id) 
+          h3=director.name
+          p=director.birth_date_formatted
+          p=director.death_date_formatted
+
+    

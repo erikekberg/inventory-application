@@ -10,11 +10,13 @@ const MovieSchema = new Schema({
     type: String,
   },
   director: {
-    type: Schema.Types.ObjectId,
-    ref: "Director",
+    type: String,
   },
-  actors: {
+  genres: {
     type: Array,
+  },
+  releaseyear: {
+    type: Number,
   },
 });
 

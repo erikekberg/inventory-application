@@ -1,4 +1,11 @@
 extends layout 
 
 block content 
-    h1 form for adding director
+  form(action="/directors/add" method="post")
+    label(for="name") Name:
+    input(type="text" name="name" id="name")
+    label(for="birthdate") Birthdate: 
+    input(type="date" name="birthdate" id="birthdate")
+    label(for="deathdate") Deathdate: 
+    input(type="date" name="deathdate" id="deathdate")
+    button Submit  

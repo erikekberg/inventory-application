@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  div
+    h1=details.title 
+    h2=details.releaseyear
+    p=details.description
+    p=details.director
+    ul 
+      for genre in details.genres 
+        li=genre
+    form(action="delete/"+details._id method="delete") 
+      button delete
+    form(action="update/"+details._id method="put") 
+      button update

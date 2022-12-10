@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+    h1=director.name
+    p=director.birth_date_formatted
+    p=director.death_date_formatted 
+
+    ul 
+      for movie in movies 
+        li=movie.title
